@@ -1,4 +1,4 @@
-This is individual programming project 1; get the biggest meteors from the dataset.
+This is individual programming project 1; get the biggest and most recent meteors from the dataset.
 
 The main driver program iterates through the dataset, passing each line to the utility functions get_data and separate_data to create a dictionary of dictionaries of all the data.
 

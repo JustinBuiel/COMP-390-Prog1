@@ -1,4 +1,5 @@
 def get_data(string):
+    # create a new temp dictionary for each iteration with blank strings so there's no confusion and overwriting old data
     temp = {
         "name": " ",
         "id": " ",
@@ -14,6 +15,7 @@ def get_data(string):
         "counties": " "
     }
 
+    # go through and separate the data values into the correct keys then get the new, trimmed string
     temp["name"], string = separate_data(string)
     temp["id"], string = separate_data(string)
     temp["nametype"], string = separate_data(string)
@@ -26,9 +28,12 @@ def get_data(string):
     temp["geolocation"], string = separate_data(string)
     temp["states"], string = separate_data(string)
     temp["counties"], string = separate_data(string)
+
+    # return temp dictionary into the all_data dictionary (nested)
     return temp
 
 
+# filter the data according to the specifications, return empty when value is missing or has incorrect data
 def get_recent(year_dict):
     if year_dict["year"] == "N/A":
         return
@@ -38,6 +43,7 @@ def get_recent(year_dict):
         return
 
 
+# filter the data according to the specifications, return empty when value is missing or has incorrect data
 def get_large(mass_dict):
     if mass_dict["mass"] == "N/A":
         return
@@ -47,6 +53,7 @@ def get_large(mass_dict):
         return
 
 
+# function used to read values from text file and put it into temp keys
 def separate_data(passed_string):
     new_string = ""
     while passed_string[0] != "\t":
@@ -61,4 +68,3 @@ def separate_data(passed_string):
     if passed_string[0] != "\n":
         passed_string = passed_string[1:]
     return new_string, passed_string
-
